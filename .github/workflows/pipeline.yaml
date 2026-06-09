@@ -29,8 +29,8 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t dneves9/aula15-main:1.0 .
+          docker build -t dneves8/aula15-main:1.0 .
 
       - name: Push Image
         run: |
-          docker push dneves9/aula15-main:1.0
+          docker push dneves8/aula15-main:1.0
