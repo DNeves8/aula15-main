@@ -7,24 +7,19 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Chekout
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version:22
+          node-version: '22'
 
-      - name: Install
-        run: npm Install
-
-      - name: Build Docker
-        run: docker build -t aula15-main
+      - name: Install dependencies
+        run: npm ci
 
       - name: Login Docker Hub
         uses: docker/login-action@v3
@@ -34,10 +29,8 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t DNeves9/aula15-main:1.0 .
+          docker build -t dneves9/aula15-main:1.0 .
 
       - name: Push Image
         run: |
-          docker push DNeves9/aula15-main:1.0
-    
-     
+          docker push dneves9/aula15-main:1.0
